@@ -1,4 +1,4 @@
-# Coin Clicker Game
+# Coin Clicker Game (IPAD-Version)
 
 A fun and addictive clicker game where you can earn coins, buy upgrades, and watch your coins multiply!
 

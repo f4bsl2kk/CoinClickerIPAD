@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Clicker Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .shop-container {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background: #ff0000;
+            transform: scale(1.1);
+        }
+        .shop-content {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="shop-container">
+        <button class="back-button" onclick="window.close()">✕</button>
+        <div class="shop-content">
+            <div class="shop-header">
+                <h2>Shop</h2>
+            </div>
+            <div class="shop-content">
+                <!-- Auto-Clickers -->
+                <div class="shop-category">
+                    <h3>Auto-Clickers</h3>
+                    <div class="shop-items">
+                        <div class="shop-item">
+                            <h4>Basic Auto-Clicker</h4>
+                            <p>Price: <span id="basicAutoPrice">50</span> coins</p>
+                            <p>CPS: <span id="basicAutoCps">1</span></p>
+                            <button onclick="buyAutoClicker('basic')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Silver Auto-Clicker</h4>
+                            <p>Price: <span id="silverAutoPrice">200</span> coins</p>
+                            <p>CPS: <span id="silverAutoCps">2</span></p>
+                            <button onclick="buyAutoClicker('silver')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Gold Auto-Clicker</h4>
+                            <p>Price: <span id="goldAutoPrice">500</span> coins</p>
+                            <p>CPS: <span id="goldAutoCps">5</span></p>
+                            <button onclick="buyAutoClicker('gold')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Diamond Auto-Clicker</h4>
+                            <p>Price: <span id="diamondAutoPrice">1000</span> coins</p>
+                            <p>CPS: <span id="diamondAutoCps">10</span></p>
+                            <button onclick="buyAutoClicker('diamond')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Master Auto-Clicker</h4>
+                            <p>Price: <span id="masterAutoPrice">2500</span> coins</p>
+                            <p>CPS: <span id="masterAutoCps">20</span></p>
+                            <button onclick="buyAutoClicker('master')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Legendary Auto-Clicker</h4>
+                            <p>Price: <span id="legendaryAutoPrice">5000</span> coins</p>
+                            <p>CPS: <span id="legendaryAutoCps">50</span></p>
+                            <button onclick="buyAutoClicker('legendary')">Buy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Multipliers -->
+                <div class="shop-category">
+                    <h3>Multipliers</h3>
+                    <div class="shop-items">
+                        <div class="shop-item">
+                            <h4>Bronze Multiplier</h4>
+                            <p>Price: <span id="bronzeMultiPrice">100</span> coins</p>
+                            <p>Multiplier: ×<span id="bronzeMultiValue">1.5</span></p>
+                            <button onclick="buyMultiplier('bronze')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Silver Multiplier</h4>
+                            <p>Price: <span id="silverMultiPrice">300</span> coins</p>
+                            <p>Multiplier: ×<span id="silverMultiValue">2</span></p>
+                            <button onclick="buyMultiplier('silver')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Gold Multiplier</h4>
+                            <p>Price: <span id="goldMultiPrice">800</span> coins</p>
+                            <p>Multiplier: ×<span id="goldMultiValue">3</span></p>
+                            <button onclick="buyMultiplier('gold')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Diamond Multiplier</h4>
+                            <p>Price: <span id="diamondMultiPrice">2000</span> coins</p>
+                            <p>Multiplier: ×<span id="diamondMultiValue">5</span></p>
+                            <button onclick="buyMultiplier('diamond')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Master Multiplier</h4>
+                            <p>Price: <span id="masterMultiPrice">5000</span> coins</p>
+                            <p>Multiplier: ×<span id="masterMultiValue">10</span></p>
+                            <button onclick="buyMultiplier('master')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Legendary Multiplier</h4>
+                            <p>Price: <span id="legendaryMultiPrice">10000</span> coins</p>
+                            <p>Multiplier: ×<span id="legendaryMultiValue">20</span></p>
+                            <button onclick="buyMultiplier('legendary')">Buy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Upgrades -->
+                <div class="shop-category">
+                    <h3>Special Upgrades</h3>
+                    <div class="shop-items">
+                        <div class="shop-item">
+                            <h4>Magnet</h4>
+                            <p>Price: <span id="magnetPrice">1000</span> coins</p>
+                            <p>Description: Dreifache Coins bei Klick</p>
+                            <button onclick="buySpecialUpgrade('magnet')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Golden Touch</h4>
+                            <p>Price: <span id="goldenTouchPrice">2500</span> coins</p>
+                            <p>Description: Dreifache Coins bei Auto-Clicker</p>
+                            <button onclick="buySpecialUpgrade('goldenTouch')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Double Click</h4>
+                            <p>Price: <span id="doubleClickPrice">5000</span> coins</p>
+                            <p>Description: Doppelter Klick-Wert</p>
+                            <button onclick="buySpecialUpgrade('doubleClick')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Triple Click</h4>
+                            <p>Price: <span id="tripleClickPrice">10000</span> coins</p>
+                            <p>Description: Dreifacher Klick-Wert</p>
+                            <button onclick="buySpecialUpgrade('tripleClick')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>AutoClicker Boost</h4>
+                            <p>Price: <span id="autoClickerBoostPrice">15000</span> coins</p>
+                            <p>Description: +50% Auto-Clicker CPS</p>
+                            <button onclick="buySpecialUpgrade('autoClickerBoost')">Buy</button>
+                        </div>
+                        <div class="shop-item">
+                            <h4>Multiplier Boost</h4>
+                            <p>Price: <span id="multiplierBoostPrice">20000</span> coins</p>
+                            <p>Description: +50% Multiplier</p>
+                            <button onclick="buySpecialUpgrade('multiplierBoost')">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="shop.js"></script>
+</body>
+</html>
